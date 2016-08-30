@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+  window.currentAccount = <%= render("api/accounts/account.json.jbuilder", account: current_account).html_safe %>
+  <% end %>
+</script>
+
+<div id="content">
+
+</div>
