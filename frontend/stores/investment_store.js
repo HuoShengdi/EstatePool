@@ -1,4 +1,4 @@
-import InvestmentConstants from '../constants/offering_constants';
+import InvestmentConstants from '../constants/investment_constants';
 const Store = require('flux/utils').Store;
 import AppDispatcher from '../dispatcher/dispatcher';
 
@@ -25,7 +25,7 @@ function _investmentsArray(){
 }
 
 InvestmentStore.investments = function(){
-  return Object.assign({}, _investments);
+  return _investmentsArray();
 };
 
 InvestmentStore.__onDispatch = function (payload) {

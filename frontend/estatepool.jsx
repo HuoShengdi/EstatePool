@@ -41,7 +41,7 @@ const appRouter = (
       <Route path="/offerings/:offering_name" component={OfferingProfile}></Route>
       <Route path="/new-offering" component={OfferingForm}></Route>
       <Route path="/portfolio" component={Portfolio}></Route>
-      <Route path="/portfolio/investment/:offering_name" component={InvestmentProfile}></Route>
+      <Route path="/portfolio/investment/:id" component={InvestmentProfile}></Route>
     </Route>
   </Router>
 );

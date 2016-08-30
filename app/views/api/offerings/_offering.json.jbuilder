@@ -1,1 +1,3 @@
-json.extract! offering, :id, :account_id, :name, :investment_type, :property_type, :min_investment, :target_return, :hold, :description
+json.extract! offering, :id, :account_id, :name,
+  :investment_type, :property_type, :min_investment, :target_return, :hold, :description,
+  :investment_total, :investor_ids
