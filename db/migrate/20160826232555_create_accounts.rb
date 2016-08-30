@@ -6,5 +6,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :session_token, null: false
       t.timestamps null: false
     end
+
+    add_index :accounts, :email, unique: true
   end
 end

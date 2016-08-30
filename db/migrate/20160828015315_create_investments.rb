@@ -7,5 +7,8 @@ class CreateInvestments < ActiveRecord::Migration
       t.string :status
       t.timestamps null: false
     end
+
+    add_index :investments, :account_id
+    add_index :investments, :offering_id
   end
 end

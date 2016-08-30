@@ -37,13 +37,11 @@ const appRouter = (
       <IndexRoute component={Home}/>
       <Route path="/signup" component={SignupForm}></Route>
       <Route path="/login" component={LoginForm}></Route>
-      <Route path="/offerings" component={OfferingsIndex}>
-        <Route path="/offerings/:offering_name" component={OfferingProfile}></Route>
-      </Route>
+      <Route path="/offerings" component={OfferingsIndex}></Route>
+      <Route path="/offerings/:offering_name" component={OfferingProfile}></Route>
       <Route path="/new-offering" component={OfferingForm}></Route>
-      <Route path="/portfolio" component={Portfolio}>
-        <Route path="/portfolio/investment/:offering_name" component={InvestmentProfile}></Route>
-      </Route>
+      <Route path="/portfolio" component={Portfolio}></Route>
+      <Route path="/portfolio/investment/:offering_name" component={InvestmentProfile}></Route>
     </Route>
   </Router>
 );

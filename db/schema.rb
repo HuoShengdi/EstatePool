@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160828015750) do
     t.datetime "updated_at",      null: false
   end
 
+  add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true, using: :btree
+
   create_table "investments", force: :cascade do |t|
     t.integer  "offering_id", null: false
     t.integer  "account_id",  null: false
@@ -33,8 +35,12 @@ ActiveRecord::Schema.define(version: 20160828015750) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "investments", ["account_id"], name: "index_investments_on_account_id", using: :btree
+  add_index "investments", ["offering_id"], name: "index_investments_on_offering_id", using: :btree
+
   create_table "offerings", force: :cascade do |t|
     t.string   "name",            null: false
+    t.integer  "account_id",      null: false
     t.string   "investment_type", null: false
     t.string   "property_type",   null: false
     t.integer  "min_investment"
@@ -45,5 +51,8 @@ ActiveRecord::Schema.define(version: 20160828015750) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "offerings", ["account_id"], name: "index_offerings_on_account_id", using: :btree
+  add_index "offerings", ["name"], name: "index_offerings_on_name", unique: true, using: :btree
 
 end

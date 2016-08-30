@@ -7,13 +7,13 @@ let _offerings = {};
 const OfferingStore = new Store(AppDispatcher);
 
 function _loadOffering(offering){
-  _offerings[offering.id] = offering;
+  _offerings[offering.name] = offering;
 }
 
 function _resetOfferings(offerings){
   _offerings = {};
   offerings.forEach((offering)=>{
-    _offerings[offering.id] = offering;
+    _offerings[offering.name] = offering;
   });
 }
 
@@ -25,7 +25,11 @@ function _offeringsArray(){
 }
 
 OfferingStore.offerings = function(){
-  return Object.assign({}, _offerings);
+  return _offeringsArray();
+};
+
+OfferingStore.offering = function(name){
+  return _offerings[name];
 };
 
 OfferingStore.__onDispatch = function (payload) {
