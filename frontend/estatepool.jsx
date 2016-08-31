@@ -6,6 +6,7 @@ const ReactRouter = require('react-router');
   const IndexRoute = ReactRouter.IndexRoute;
   const hashHistory = ReactRouter.hashHistory;
 import SessionActions from './actions/session_actions';
+import SessionStore from './stores/session_store';
 import Home from './components/home';
 import SignupForm from './components/signup_form';
 import LoginForm from './components/login_form';
@@ -34,19 +35,23 @@ const EstatePool = React.createClass({
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={EstatePool}>
-      <IndexRoute component={Home}/>
+      <IndexRoute component={Home} onEnter={_ensureLoggedIn}/>
       <Route path="/signup" component={SignupForm}></Route>
       <Route path="/login" component={LoginForm}></Route>
       <Route path="/offerings" component={OfferingsIndex}></Route>
       <Route path="/offerings/:offering_name" component={OfferingProfile}></Route>
       <Route path="/new-offering" component={OfferingForm}></Route>
-      <Route path="/portfolio" component={Portfolio}></Route>
-      <Route path="/portfolio/investment/:id" component={InvestmentProfile}></Route>
+      <Route path="/portfolio" component={Portfolio} onEnter={_ensureLoggedIn}></Route>
+      <Route path="/portfolio/investment/:id" component={InvestmentProfile} onEnter={_ensureLoggedIn}></Route>
     </Route>
   </Router>
 );
 
-
+function _ensureLoggedIn(nextState, replace) {
+    if (!SessionStore.isAccountLoggedIn()) {
+      replace('/login');
+    }
+}
 
 document.addEventListener('DOMContentLoaded', ()=>{
   if (window.currentAccount){

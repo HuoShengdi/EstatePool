@@ -4,7 +4,7 @@ const Home = React.createClass({
   render () {
     return (
       <div>
-
+        <h1>EstatePool Home</h1>
       </div>
     );
   }

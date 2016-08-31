@@ -30,7 +30,7 @@ const OfferingActions = {
     });
   },
   createOffering(formData){
-    OfferingApiUtil.createOffering(formData, this.receiveOffering);
+    OfferingApiUtil.createOffering(formData, this.receiveNewOffering);
   }
 };
 

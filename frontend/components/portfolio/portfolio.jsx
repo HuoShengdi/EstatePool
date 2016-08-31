@@ -8,7 +8,6 @@ const Portfolio = React.createClass({
     return {investments: InvestmentStore.investments()};
   },
   onChange(){
-    console.log("hello world");
     this.setState({investments: InvestmentStore.investments()});
   },
   componentDidMount(){
@@ -25,7 +24,7 @@ const Portfolio = React.createClass({
     return (
       <div>
         <h2>Your investments</h2>
-        <div>
+        <div className='investment-list'>
           {investItems}
         </div>
       </div>

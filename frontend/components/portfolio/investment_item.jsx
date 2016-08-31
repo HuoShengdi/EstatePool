@@ -4,7 +4,7 @@ const InvestmentItem = React.createClass({
   render () {
     const inv = this.props.investment;
     return (
-      <div>
+      <div className='investment-item'>
         <div>
           Offering: {inv.offering_name}
         </div>

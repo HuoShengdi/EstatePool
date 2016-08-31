@@ -42,9 +42,9 @@ const NavBar = React.createClass({
       </a>);
     const logo = (
       <h1 id='logo' className="navbar-logo">
-        <a href='#' onClick={this.redirect("/")}>
+        <span onClick={this.redirect("/")}>
           EstatePool
-        </a>
+        </span>
       </h1>);
     const offeringsButton = (
       <a

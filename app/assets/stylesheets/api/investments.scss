@@ -1,3 +1,18 @@
 // Place all the styles related to the Api::Investments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.investment-list {
+  border: 1px solid #888;
+  padding: 10px;
+  display: flex;
+}
+
+.investment-item {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid #aaa;
+  width: calc((100% - 50px)/3);
+  padding: 10px;
+}
